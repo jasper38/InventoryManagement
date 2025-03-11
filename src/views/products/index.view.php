@@ -11,7 +11,6 @@ require_once base_path('views/partials/nav.php');
             <h1>Products</h1>
             <div class="head-title">
                 <div class="left">
-                    <!-- <h1>Welcome, <?= $_SESSION['user']['role'] ?></h1> -->
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Products</a>
@@ -52,16 +51,19 @@ require_once base_path('views/partials/nav.php');
                             <tr>
                                 <td>
                                     <img src="/assets/img/people.png">
-                                    <p><?= $product['name'] ?></p>
+                                    <p><?= htmlspecialchars($product['name']) ?></p>
                                 </td>
-                                <td><?= $product['sku'] ?></td>
-                                <td><?= $product['description'] ?></td>
-                                <td><?= $product['supp_id'] ?></td>
-                                <td><?= $product['price'] ?></td>
-                                <td><?= $product['qty'] ?></td>
-                                <td><?= $product['status'] ?></td>
-                                <td><?= $product['type'] ?></td>
-                                <!-- <td><span class="status completed">Completed</span></td> -->
+                                <td><?= htmlspecialchars($product['sku']) ?></td>
+                                <td><?= htmlspecialchars($product['description']) ?></td>
+                                <td><?= htmlspecialchars($product['supp_id']) ?></td>
+                                <td><?= htmlspecialchars($product['price']) ?></td>
+                                <td><?= htmlspecialchars($product['qty']) ?></td>
+                                <td>
+                                    <span class="status <?= strtolower(htmlspecialchars($product['status'])) ?>">
+                                        <?= htmlspecialchars($product['status']) ?>
+                                    </span>
+                                </td>
+                                <td><?= htmlspecialchars($product['type']) ?></td>
                             </tr>
                         </tbody>
                     <?php endforeach; ?>

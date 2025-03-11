@@ -21,22 +21,8 @@ require_once base_path('views/partials/nav.php');
                         </li>
                     </ul>
                 </div>
-                <!-- <ul class="breadcrumb">
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li><i class='bx bx-chevron-right'></i></li>
-                <li>
-                    <a class="active" href="#">Home</a>
-                </li>
-            </ul> -->
             </div>
-            <!-- <a href="#" class="btn-download">
-			<i class='bx bxs-cloud-download' ></i>
-			<span class="text">Download PDF</span>
-		</a> -->
         </div>
-
         <div class="table-data">
             <div class="order">
                 <div class="head">
@@ -65,129 +51,25 @@ require_once base_path('views/partials/nav.php');
                                 <th>Type</th>
                             </tr>
                         </thead>
-
-                        <!-- <tbody>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                        <tr>
-                            <td>0000001</td>
-                            <td>0000002</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                            <td>22222222</td>
-                            <td>Mouse</td>
-                            <td>50</td>
-                            <td>Php 10000</td>
-                            <td>Mouse</td>
-                        </tr>
-                    </tbody> -->
                         <?php foreach ($orders as $order) : ?>
                             <tbody>
                                 <tr>
-                                    <td><?= $order['tracking_id'] ?></td>
-                                    <td><?= $order['id'] ?></td>
+                                    <td><?= htmlspecialchars($order['tracking_id']) ?></td>
+                                    <td><?= htmlspecialchars($order['id']) ?></td>
                                     <td>
-                                        <p><?= $order['status'] ?></p>
+                                        <p><?= htmlspecialchars($order['status']) ?></p>
                                     </td>
-                                    <td><?= $order['supp_name'] ?></td>
-                                    <td><?= $order['name'] ?></td>
-                                    <td><?= $order['qty'] ?></td>
-                                    <td><?= $order['price'] ?></td>
-                                    <td><?= $order['type'] ?></td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
+                                    <td><?= htmlspecialchars($order['supp_name']) ?></td>
+                                    <td><?= htmlspecialchars($order['name']) ?></td>
+                                    <td><?= htmlspecialchars($order['qty']) ?></td>
+                                    <td><?= htmlspecialchars($order['price']) ?></td>
+                                    <td><?= htmlspecialchars($order['type']) ?></td>
                                 </tr>
                             </tbody>
                         <?php endforeach; ?>
                     </table>
                 </div>
             </div>
-
-            <!-- <div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div> -->
         </div>
     </div>
 </main>
