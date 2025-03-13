@@ -45,7 +45,7 @@ require_once base_path('views/partials/nav.php');
                                 <th>Name</th>
                                 <th>SKU</th>
                                 <th>Description</th>
-                                <th>Supplier Name</th>
+                                <th>Supplier ID</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Type</th>

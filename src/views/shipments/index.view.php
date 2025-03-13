@@ -63,8 +63,11 @@ require_once base_path('views/partials/nav.php');
             <div class="order">
                 <div class="head">
                     <h3>Shipments Log</h3>
-                    <a href="#addProductModal" class="add-product-button">
-                        <div class="add-product-icon"><i class='bx bxs-plus-circle'></i></div>
+                    <a href="#shipment-modal" class="modal-button">
+                        <div class="modal-icon">
+                            <h5>New</h5>
+                            <i class='bx bxs-plus-circle'></i>
+                        </div>
                     </a>
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
@@ -150,57 +153,22 @@ td> -->
 </main>
 <?php require_once base_path('views/partials/section.close.php'); ?>
 
-<div id="addProductModal" class="modal">
-    <div class="modal-content">
+<div id="shipment-modal" class="modal">
+    <div class="modal-content shipment">
         <div class="close-button"><a href="#" class="close">&times;</a></div>
         <form>
             <div class="row">
                 <div class="column">
-                    <label for="productName">Product Name:</label>
-                    <input type="text" id="productName" name="productName" required>
+                    <label for="customerName">Customer Name:</label>
+                    <input type="text" id="customerName" name="customerName" required>
                 </div>
                 <div class="column">
-                    <label for="sku">SKU:</label>
-                    <input type="text" id="sku" name="productsku" required>
+                    <label for="S.O ID">Sales Order ID:</label>
+                    <input type="text" id="S.O ID" name="S.O ID" required>
                 </div>
             </div>
-            <div class="row">
-                <div class="column">
-                    <label for="supplierid">Supplier ID:</label>
-                    <input type="text" id="supplierID" name="supplierID" required>
-                </div>
-                <div class="column">
-                    <label for="supplierName">Supplier Name:</label>
-                    <input type="text" id="supplierName" name="supplierName" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <label for="description">Description:</label>
-                    <input type="text" id="desc" name="description" required>
-                </div>
-                <div class="column">
-                    <label for="price">Price:</label>
-                    <input type="text" id="price" name="price" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <label for="qty">Quantity:</label>
-                    <input type="text" id="qty" name="qty" required>
-                </div>
-                <div class="column">
-                    <label for="status">Status:</label>
-                    <input type="text" id="status" name="status" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <label for="category">Type:</label>
-                    <input type="text" id="category" name="category" required>
-                </div>
-            </div>
-            <input type="submit" value="Add Product">
+
+            <input type="submit" class="ship" value="Ship">
         </form>
     </div>
 </div>

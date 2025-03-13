@@ -18,12 +18,12 @@
                 <span class="text">Products</span>
             </a>
         </li>
-        <!-- <li class="<?= url_is("/{$role}/restock") ? 'active' : '' ?>">
+        <li class="<?= url_is("/{$role}/restock") ? 'active' : '' ?>">
             <a href="/<?= $role ?>/restock">
                 <i class='bx bxs-purchase-tag'></i>
                 <span class="text">Restock</span>
             </a>
-        </li> -->
+        </li>
         <li class="<?= url_is("/{$role}/orders") ? 'active' : '' ?>">
             <a href="/<?= $role ?>/orders">
                 <i class='bx bx-cart'></i>
