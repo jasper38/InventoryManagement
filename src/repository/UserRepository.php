@@ -1,10 +1,10 @@
 <?php
 
-namespace src\models;
+namespace src\repository;
 
 use src\core\Database;
 
-class User
+class UserRepository
 {
     private $db;
 

@@ -2,20 +2,25 @@
 
 namespace src\controllers;
 
-use src\models\Admin;
+use src\repository\AdminRepository;
 use src\controllers\Controller;
 
 class AdminController extends Controller
 {
-    private $adminModel;
+    private $admin;
 
     public function __construct()
     {
-        $this->adminModel = new Admin();
+        $this->admin = new AdminRepository();
     }
 
     public function dashboard()
     {
         $this->view('admin/dashboard.view.php');
+    }
+
+    public function settings()
+    {
+        $this->view('admin/settings.view.php');
     }
 }

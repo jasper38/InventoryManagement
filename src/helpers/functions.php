@@ -31,7 +31,7 @@ function view_access($role)
 
 function url_is($value)
 {
-    return $_SERVER['REQUEST_URI'] === $value;
+    return strpos($_SERVER['REQUEST_URI'], $value) === 0;
 }
 
 function generateTrackingId()

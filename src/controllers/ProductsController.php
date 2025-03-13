@@ -2,26 +2,29 @@
 
 namespace src\controllers;
 
-use src\models\Products;
+use src\repository\ProductsRepository;
 use src\utils\Request;
-use src\utils\Response;
 
 class ProductsController extends Controller
 {
-    private $productsModel;
+    private $productsRepo;
 
     public function __construct()
     {
-        $this->productsModel = new Products();
+        $this->productsRepo = new ProductsRepository();
     }
-
     public function index()
     {
-        $products = $this->productsModel->getAll();
+        $products = $this->productsRepo->getAll();
 
         $this->view('products/index.view.php', [
             'products' => $products
         ]);
+    }
+
+    public function edit()
+    {
+        $this->view('products/edit.view.php');
     }
 
     public function store()
@@ -44,7 +47,7 @@ class ProductsController extends Controller
             redirect('/admin/products?error=an_error_occured');
         }
 
-        $this->productsModel->create($data);
+        $this->productsRepo->create($data);
 
         redirect('/admin/products?success=added_successfully');
     }

@@ -58,7 +58,7 @@ require_once base_path('views/partials/nav.php');
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -66,85 +66,99 @@ require_once base_path('views/partials/nav.php');
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111111">
+                                            <i class="bx bx-edit"></i>
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
-                                    <td>0111111</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
+                                    <td>0111112</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
                                     <td>Php 10000</td>
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111112">
+                                            <i class="bx bx-edit"></i>
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
-                                    <td>0111111</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
+                                    <td>0111113</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
                                     <td>Php 10000</td>
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111113">
+                                            <i class="bx bx-edit"></i>
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
-                                    <td>0111111</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
+                                    <td>0111114</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
                                     <td>Php 10000</td>
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111114">
+                                            <i class="bx bx-edit"></i>
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
-                                    <td>0111111</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
+                                    <td>0111115</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
                                     <td>Php 10000</td>
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111115">
+                                            <i class="bx bx-edit"></i>
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
-                                    <td>0111111</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
+                                    <td>0111116</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
                                     <td>Php 10000</td>
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111116">
+                                            <i class="bx bx-edit"></i>
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
-                                    <td>0111111</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
+                                    <td>0111117</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
                                     <td>Php 10000</td>
                                     <td>50</td>
                                     <td>Mouse</td>
                                     <td class="action-icons">
-                                        <i class="bx bx-edit"></i>
+                                        <a href="/<?= $role ?>/products/edit/0111117">
+                                            <i class="bx bx-edit"></i>
+                                        </a> 
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
@@ -260,5 +274,6 @@ require_once base_path('views/partials/nav.php');
     </div>
 </div>
 
-<?php require base_path('views/partials/confirm-modal.php'); ?>
+<?php require_once base_path('views/partials/confirm-modal.php'); ?>
+
 <?php require_once base_path('views/partials/footer.php'); ?>

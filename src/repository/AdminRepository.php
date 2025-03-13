@@ -1,10 +1,10 @@
 <?php
 
-namespace src\models;
+namespace src\repository;
 
 use src\core\Database;
 
-class Restock
+class AdminRepository
 {
     private $db;
 

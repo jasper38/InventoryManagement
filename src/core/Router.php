@@ -91,25 +91,6 @@ class Router
         die();
     }
 
-    private function matchUri($uri, $registeredUri)
-    {
-        $userRole = Authenticator::userRole();
-
-        if (strpos($registeredUri, '{role}') !== false) {
-            $expectedUri = str_replace('{role}', $userRole, $registeredUri);
-
-            if (!str_starts_with($uri, "/$userRole/")) {
-                $this->abort(Response::FORBIDDEN);
-            }
-        } else {
-            $expectedUri = $registeredUri;
-        }
-
-        $pattern = "#^" . preg_replace("#\{role\}#", preg_quote($userRole, '#'), preg_quote($expectedUri, '#')) . "(/.*)?$#";
-
-        return preg_match($pattern, $uri);
-    }
-
     private function dispatch($route)
     {
         $controller = $route['controller'];
@@ -122,5 +103,49 @@ class Router
         RouterValidator::validateControllerMethod($instance, $method, $class);
 
         return $instance->$method();
+    }
+
+    private function matchUri($uri, $registeredUri)
+    {
+        $userRole = Authenticator::userRole();
+
+        $registeredUri = $this->replaceRolePlaceholder($registeredUri, $userRole);
+        if (!$this->isAuthorizedRoleUri($uri, $userRole, $registeredUri)) {
+            $this->abort(Response::FORBIDDEN);
+        }
+
+        $pattern = $this->buildRegexPattern($registeredUri, $userRole);
+
+        return $this->matchAndExtractParams($uri, $pattern);
+    }
+
+    private function replaceRolePlaceholder($uri, $userRole)
+    {
+        return str_replace('{role}', $userRole, $uri);
+    }
+
+    private function isAuthorizedRoleUri($uri, $userRole, $expectedUri)
+    {
+        return str_contains($expectedUri, '{role}') || str_starts_with($uri, "/$userRole/");
+    }
+
+    private function buildRegexPattern($registeredUri, $userRole)
+    {
+        return "#^" . preg_replace([
+            "/\{role\}/", 
+            "/\{sku\}/"   
+        ], [
+            preg_quote($userRole, '#'),
+            '([^/]+)'
+        ], $registeredUri) . "$#";
+    }
+
+    private function matchAndExtractParams($uri, $pattern)
+    {
+        if (preg_match($pattern, $uri, $matches)) {
+            $_GET['sku'] = $matches[1] ?? null;
+            return true;
+        }
+        return false;
     }
 }

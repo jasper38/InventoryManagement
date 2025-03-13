@@ -3,15 +3,15 @@
 namespace src\controllers;
 
 use src\core\Authenticator;
-use src\models\User;
+use src\repository\UserRepository;
 
 class AuthController extends Controller
 {
-    private $userModel;
+    private $userRepo;
 
     public function __construct()
     {
-        $this->userModel = new User();
+        $this->userRepo = new UserRepository();
     }
 
     public function index()
@@ -24,11 +24,11 @@ class AuthController extends Controller
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $user = $this->userModel->findByEmail($email);
+        $user = $this->userRepo->findByEmail($email);
 
         $signedIn = Authenticator::attempt($user, $password);
 
-        if(!$signedIn){
+        if (!$signedIn) {
             redirect('/');
         }
 

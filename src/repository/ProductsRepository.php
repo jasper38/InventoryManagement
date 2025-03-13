@@ -1,10 +1,10 @@
 <?php
 
-namespace src\models;
+namespace src\repository;
 
 use src\core\Database;
 
-class Products
+class ProductsRepository
 {
     private $db;
 

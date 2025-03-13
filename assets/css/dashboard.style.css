@@ -178,7 +178,7 @@ body {
 #sidebar.hide .side-menu form button, 
 #sidebar.hide .side-menu li a {
     width: calc(48px - (4px * 2));
-    transition: width .3s ease;
+    transition: .3s ease;
 }
 
 #sidebar .text {
@@ -188,7 +188,7 @@ body {
 #sidebar.hide .text {
     opacity: 0;
     visibility: hidden;
-    transition-delay: 0.2s;
+    transition-delay: 0.1s;
 }
 
 #sidebar .side-menu li form button {
@@ -236,7 +236,7 @@ body {
 }
 
 #sidebar.hide~.modal{
-    width: calc(100% - 60px);
+    /* width: calc(100% - 60px); */
     margin-left: 60px;
 }
 /* CONTENT-END */
@@ -394,7 +394,7 @@ body {
     padding: 36px 24px;
     font-family: var(--poppins);
     max-height: calc(100vh - 56px);
-    /* overflow-y: auto; */
+   /* overflow-y: auto;  */
 }
 
 #content main .head-title {

@@ -2,23 +2,23 @@
 
 namespace src\controllers;
 
-use src\models\Products;
-use src\models\Restock;
+use src\repository\RestockRepository;
+use src\repository\ProductsRepository;
 
 class RestockController extends Controller
 {
-    private $restockModel;
-    private $productsModel;
+    private $restockRepo;
+    private $productsRepo;
 
     public function __construct()
     {
-        $this->restockModel = new Restock();
-        $this->productsModel = new Products();
+        $this->restockRepo = new RestockRepository();
+        $this->productsRepo = new ProductsRepository();
     }
 
     public function index()
     {
-        $toRestock = $this->productsModel->checkToRestock();
+        $toRestock = $this->productsRepo->checkToRestock();
 
         $this->view('restock/index.view.php', [
             'restock' => $toRestock

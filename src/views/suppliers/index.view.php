@@ -8,13 +8,13 @@ require_once base_path('views/partials/nav.php');
 <main>
     <div class="head-title">
         <div class="left">
-            <h1>Products</h1>
+            <h1><a href="/<?= $role ?>/suppliers/create">Suppliers Kung Asa Ka makaadd page for now</a></h1>
             <div class="head-title">
                 <div class="left">
                     <!-- <h1>Welcome, <?= $_SESSION['user']['role'] ?></h1> -->
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Products</a>
+                            <a href="#">Suppliers</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
@@ -58,7 +58,7 @@ require_once base_path('views/partials/nav.php');
                         <table>
                             <tbody>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -71,7 +71,7 @@ require_once base_path('views/partials/nav.php');
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -84,7 +84,7 @@ require_once base_path('views/partials/nav.php');
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -97,7 +97,7 @@ require_once base_path('views/partials/nav.php');
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -110,7 +110,7 @@ require_once base_path('views/partials/nav.php');
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -123,7 +123,7 @@ require_once base_path('views/partials/nav.php');
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>
@@ -136,7 +136,7 @@ require_once base_path('views/partials/nav.php');
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="image-placeholder.png"> Mouse</td>
+                                    <td><img src="/assets/img/people.png"> Mouse</td>
                                     <td>0111111</td>
                                     <td>Powerless Mouse</td>
                                     <td>22222222</td>

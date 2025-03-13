@@ -23,6 +23,7 @@ if (localStorage.getItem('sidebarState') === 'collapsed') {
 
 menuBar.addEventListener('click', function () {
     sidebar.classList.toggle('hide');
+    console.log("Sidebar classes: ", sidebar.classList);
 
     localStorage.setItem('sidebarState', sidebar.classList.contains('hide') ? 'collapsed' : 'expanded');
 });
@@ -30,13 +31,19 @@ menuBar.addEventListener('click', function () {
 links.forEach(link => {
     link.addEventListener("click", function (e) {
         if (sidebar.classList.contains("hide")) {
+            sidebar.style.transition = "none";
+            setTimeout(() => {
+                sidebar.style.transition = "";
+            }, 50);
             e.stopPropagation();
         }
     });
 });
 
 window.addEventListener('load', function () {
-    sidebar.classList.remove('preload');
+    setTimeout(() => {
+        sidebar.classList.remove('preload');
+    }, 100);
 });
 
 

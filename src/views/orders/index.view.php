@@ -131,7 +131,7 @@ require_once base_path('views/partials/nav.php');
         </form>
     </div>
 </div>
-<?php require base_path('views/partials/confirm-modal.php'); ?>
+<?php require_once base_path('views/partials/confirm-modal.php'); ?>
 
 <?php require_once base_path('views/partials/section.close.php'); ?>
 <?php require_once base_path('views/partials/footer.php'); ?>

@@ -2,15 +2,15 @@
 
 namespace src\controllers;
 
-use src\models\Shipments;
+use src\repository\ShipmentsRepository;
 
 class ShipmentsController extends Controller
 {
-    private $shipmentsModel;
+    private $shipmentsRepo;
 
     public function __construct()
     {
-        $this->shipmentsModel = new Shipments();
+        $this->shipmentsRepo = new ShipmentsRepository();
     }
 
     public function index()

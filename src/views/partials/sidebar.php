@@ -36,10 +36,22 @@
                 <span class="text">Shipments</span>
             </a>
         </li>
+        <li class="<?= url_is("/{$role}/customers") ? 'active' : '' ?>">
+            <a href="/<?= $role ?>/customers">
+                <i class='bx bxs-paper-plane'></i>
+                <span class="text">Customers</span>
+            </a>
+        </li>
+        <li class="<?= url_is("/{$role}/suppliers") ? 'active' : '' ?>">
+            <a href="/<?= $role ?>/suppliers">
+                <i class='bx bxs-paper-plane'></i>
+                <span class="text">Suppliers</span>
+            </a>
+        </li>
     </ul>
     <ul class="side-menu">
         <li>
-            <a href="#">
+            <a href="/<?= $role ?>/settings">
                 <i class='bx bxs-cog'></i>
                 <span class="text">Settings</span>
             </a>

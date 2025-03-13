@@ -2,21 +2,21 @@
 
 namespace src\controllers;
 
-use src\models\Orders;
+use src\repository\OrdersRepository;
 use src\utils\Request;
 
 class OrdersController extends Controller
 {
-    private $ordersModel;
+    private $ordersRepo;
 
     public function __construct()
     {
-        $this->ordersModel = new Orders();
+        $this->ordersRepo = new OrdersRepository();
     }
 
     public function index()
     {
-        $orders = $this->ordersModel->getAll();
+        $orders = $this->ordersRepo->getAll();
         $this->view('orders/index.view.php', [
             'orders' => $orders
         ]);
@@ -26,7 +26,7 @@ class OrdersController extends Controller
     {
         $data = Request::all();
 
-        $this->ordersModel->create($data);
+        $this->ordersRepo->create($data);
 
         redirect('/admin/orders?success=added_successfully');
     }
