@@ -982,7 +982,6 @@ table tr>th:nth-of-type(1) {
     padding: 50px 0 20px 20px;
     border-radius: 20px;
     max-width: 665px;
-    width: 100%;
 }
 
 /* ORDER PAGE-START */
@@ -991,9 +990,7 @@ table tr>th:nth-of-type(1) {
     grid-gap: 0px;
     top: 55%;
     padding: 50px 0 20px 20px;
-    border-radius: 20px;
     max-width: 570px;
-    width: 100%;
 }
 /* ORDER PAGE-END */
 
@@ -1017,7 +1014,6 @@ table tr>th:nth-of-type(1) {
     right: 150px;
     padding: 35px 0 15px 20px;
     max-width: 610px;
-    width: 100%;
     top: 50%;
     left: 60%;
 }
@@ -1027,7 +1023,6 @@ table tr>th:nth-of-type(1) {
     display: none;
     position: fixed;
     z-index: 3;
-    margin-left: 280px;
     left: 0;
     top: 0;
     width: 100%;

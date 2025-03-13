@@ -64,43 +64,43 @@ require_once base_path('views/partials/nav.php');
                                     <td>Mouse</td>
                                     <td>5</td>
                                     <td><span class="status low-stock">Low stock</span></td>
-                                    <td><button class="restock-button">Restock</button></td>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
 
                                 </tr>
                                 <tr>
                                     <td>Speaker</td>
                                     <td>100</td>
                                     <td><span class="status stable">Stable</span></td>
-                                    <td><button class="restock-button">Restock</button></td>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
 
                                 </tr>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><button class="restock-button">Restock</button>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
                                 </tr>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><button class="restock-button">Restock</button>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
                                 </tr>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><button class="restock-button">Restock</button></td>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><button class="restock-button">Restock</button></td>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><button class="restock-button">Restock</button></td>
+                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
                                 </tr>
                             </tbody>
                             <!-- <?php foreach ($products as $product) : ?>
@@ -145,7 +145,7 @@ require_once base_path('views/partials/nav.php');
                     <input type="text" id="sku" name="productsku" required>
                 </div>
             </div>
-            <input type="button" id="modal-submit" value="Restock">
+            <input type="button" id="restock-modal-submit" value="Restock">
         </form>
     </div>
 </div>

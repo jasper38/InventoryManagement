@@ -156,7 +156,7 @@ td> -->
 <div id="shipment-modal" class="modal">
     <div class="modal-content shipment">
         <div class="close-button"><a href="#" class="close">&times;</a></div>
-        <form>
+        <form id="ship-form">
             <div class="row">
                 <div class="column">
                     <label for="customerName">Customer Name:</label>
@@ -167,10 +167,9 @@ td> -->
                     <input type="text" id="S.O ID" name="S.O ID" required>
                 </div>
             </div>
-
-            <input type="submit" class="ship" value="Ship">
+            <input type="button" class="ship" id="ship-modal-submit" value="Ship">
         </form>
     </div>
 </div>
-
+<?php require base_path('views/partials/confirm-modal.php'); ?>
 <?php require_once base_path('views/partials/footer.php'); ?>
