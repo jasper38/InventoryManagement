@@ -38,13 +38,13 @@
         </li>
         <li class="<?= url_is("/{$role}/customers") ? 'active' : '' ?>">
             <a href="/<?= $role ?>/customers">
-                <i class='bx bxs-paper-plane'></i>
+                <i class='bx bxs-user'></i>
                 <span class="text">Customers</span>
             </a>
         </li>
         <li class="<?= url_is("/{$role}/suppliers") ? 'active' : '' ?>">
             <a href="/<?= $role ?>/suppliers">
-                <i class='bx bxs-paper-plane'></i>
+                <i class='bx bx-store-alt'></i>
                 <span class="text">Suppliers</span>
             </a>
         </li>
