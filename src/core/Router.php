@@ -110,7 +110,8 @@ class Router
         $userRole = Authenticator::userRole();
 
         $registeredUri = $this->replaceRolePlaceholder($registeredUri, $userRole);
-        if (!$this->isAuthorizedRoleUri($uri, $userRole, $registeredUri)) {
+
+        if ($this->routeRequiresRole($registeredUri) && !$this->isAuthorizedRoleUri($uri, $userRole)) {
             $this->abort(Response::FORBIDDEN);
         }
 
@@ -121,29 +122,34 @@ class Router
 
     private function replaceRolePlaceholder($uri, $userRole)
     {
-        return str_replace('{role}', $userRole, $uri);
+        return str_contains($uri, '{role}') ? str_replace('{role}', $userRole, $uri) : $uri;
     }
 
-    private function isAuthorizedRoleUri($uri, $userRole, $expectedUri)
+    private function routeRequiresRole($registeredUri)
     {
-        return str_contains($expectedUri, '{role}') || str_starts_with($uri, "/$userRole/");
+        return str_contains($registeredUri, '{role}');
+    }
+
+    private function isAuthorizedRoleUri($uri, $userRole)
+    {
+        return str_starts_with($uri, "/$userRole/");
     }
 
     private function buildRegexPattern($registeredUri, $userRole)
     {
-        return "#^" . preg_replace([
-            "/\{role\}/", 
-            "/\{sku\}/"   
-        ], [
-            preg_quote($userRole, '#'),
-            '([^/]+)'
-        ], $registeredUri) . "$#";
+        $registeredUri = str_replace('{role}', preg_quote($userRole, '#'), $registeredUri);
+
+        $registeredUri = str_replace('{sku}', '([^/]+)', $registeredUri);
+
+        return "#^" . $registeredUri . "$#";
     }
 
     private function matchAndExtractParams($uri, $pattern)
     {
         if (preg_match($pattern, $uri, $matches)) {
-            $_GET['sku'] = $matches[1] ?? null;
+            if (isset($matches[1]) && strpos($pattern, '{sku}') !== false) {
+                $_GET['sku'] = $matches[1]; 
+            }
             return true;
         }
         return false;
