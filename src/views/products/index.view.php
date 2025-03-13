@@ -209,7 +209,7 @@ require_once base_path('views/partials/nav.php');
             </div>
             <div class="footer">
                 <button class="cancel-button">Cancel</button>
-                <a href="#confirmationModal"><button class="enlist-button">Enlist Product</button></a>
+                <button class="enlist-button" id="openConfirmationModal">Enlist Product</button>
             </div>
         </div>
         <div class="product-enlist">
@@ -260,5 +260,5 @@ require_once base_path('views/partials/nav.php');
     </div>
 </div>
 
-
+<?php require base_path('views/partials/confirm-modal.php'); ?>
 <?php require_once base_path('views/partials/footer.php'); ?>

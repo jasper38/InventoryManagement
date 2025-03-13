@@ -90,92 +90,62 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    const restockSubmitBtn = document.getElementById("modal-submit");
     const restockForm = document.getElementById("restock-form");
     const restockModal = document.getElementById("restock-modal");
-    const restockSubmit = document.getElementById("restock-submit");
     const confirmationModal = document.getElementById("confirmationModal");
-    const confirmYesButton = confirmationModal.querySelector(".yes");
-    const confirmNoButton = confirmationModal.querySelector(".no");
-    const restockButtons = document.querySelectorAll(".restock-button");
-    const restockInputs = restockForm.querySelectorAll("input[type='text']");
-    let isConfirmed = false;
+    const confirmYesBtn = document.getElementById("confirmAction");
+    const confirmNoBtn = document.getElementById("closeModal");
+    const closeButton = document.querySelector(".close-button");
 
-    // Function to open the restock modal
-    function openRestockModal() {
-        restockForm.reset(); // ✅ Clear all input fields
-        isConfirmed = false; // Reset confirmation state
-        restockSubmit.disabled = false; // Ensure submit button is enabled
-        restockModal.style.display = "block";
+    if (!restockSubmitBtn || !restockForm || !restockModal || !confirmationModal || !confirmYesBtn || !confirmNoBtn) {
+        console.error("One or more elements not found!");
+        return;
     }
 
-    // Function to close both modals
-    function closeModals() {
-        restockModal.style.display = "none";
+    // Show confirmation modal only if form is valid
+    restockSubmitBtn.addEventListener("click", function (event) {
+        if (restockForm.checkValidity()) {
+            event.preventDefault(); // Stop form from submitting immediately
+            confirmationModal.style.display = "block"; // Show confirmation modal
+        } else {
+            restockForm.reportValidity(); // Show built-in validation messages
+        }
+    });
+
+    // If "Yes" is clicked, submit form and close both modals
+    confirmYesBtn.addEventListener("click", function () {
+        restockForm.submit(); // Submit the form
+        closeModals(); // Ensure both modals are closed
+    });
+
+    // If "No" is clicked, close only the confirmation modal
+    confirmNoBtn.addEventListener("click", function () {
         confirmationModal.style.display = "none";
-        restockForm.reset(); // Clear inputs when modal is closed
-        isConfirmed = false; // Reset confirmation flag
-    }
+    });
 
-    // Open restock modal when clicking "Restock" button
+    closeButton.addEventListener("click", function () {
+        restockModal.style.display = "none"; // Hide modal
+    });
+    // Close modals when clicking outside them
+    window.addEventListener("click", function (event) {
+        if (event.target === restockModal || event.target === confirmationModal) {
+            closeModals();
+        }
+    });
+
+    // Handle opening restock modal
     document.querySelectorAll(".restock-button").forEach(button => {
         button.addEventListener("click", function () {
-            openRestockModal();
+            closeModals(); // Close any open modals before opening a new one
+            restockForm.reset(); // Clear form inputs for fresh entry
+            restockModal.style.display = "block"; // Open the restock modal
         });
     });
-
-    // Handle form submission (show confirmation modal)
-    restockForm.addEventListener("submit", function (event) {
-        if (!isConfirmed) {
-            event.preventDefault();
-            confirmationModal.style.display = "block"; // Show confirmation modal
-        }
-    });
-
-    // Confirm and submit form when clicking "Yes"
-    confirmYesButton.addEventListener("click", function () {
-        isConfirmed = true;
-        confirmationModal.style.display = "none"; // Close confirmation modal
-        restockSubmit.disabled = true; // Temporarily disable button to prevent double submission
-
-        // Submit the form after a small delay
-        setTimeout(() => {
-            restockForm.submit();
-            closeModals(); // Close all modals after submission
-        }, 100);
-    });
-
-    // If "No" is clicked, just close confirmation modal
-    confirmNoButton.addEventListener("click", function () {
-        confirmationModal.style.display = "none";
-    });
-
-    // Close modals when clicking outside of them
-    window.addEventListener("click", function (event) {
-        if (event.target === confirmationModal || event.target === restockModal) {
-            closeModals();
-        }
-    });
-
-    // Close modals when clicking close button
-    document.querySelectorAll(".close-button a").forEach(closeButton => {
-        closeButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            closeModals();
-        });
-    });
-
-    function openRestockModal() {
-        restockForm.reset(); // Reset input fields
-        isConfirmed = false; // Reset confirmation flag
-        restockSubmit.disabled = false; // Enable submit button
-        restockModal.style.display = "block";
-    }
 
     function closeModals() {
         restockModal.style.display = "none";
         confirmationModal.style.display = "none";
-        // Reset input fields when closing modals
-        restockForm.reset();
-        isConfirmed = false;
+        restockForm.reset(); // Clear input fields for the next submission
     }
 });

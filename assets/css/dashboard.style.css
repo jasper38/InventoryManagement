@@ -1159,7 +1159,7 @@ button.order {
     margin: 0 0 25px 120px;
 } */
 
-input[type="submit"] {
+input[type="button"] {
     font-family: var(--poppins);
     background-color: var(--purple);
     color: white;
@@ -1169,14 +1169,18 @@ input[type="submit"] {
     cursor: pointer;
     margin: 10px 0 0 240px;
 }
+
 input.order {
-   margin-left:  230px;
+    padding: 10px 30px;
+    margin-left:  220px;
 }
 
 input.ship {
     padding: 10px 50px;
     margin-left: 245px;
 }
+
+
 
 /* MAIN */
 /* CONTENT */

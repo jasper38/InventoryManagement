@@ -64,45 +64,43 @@ require_once base_path('views/partials/nav.php');
                                     <td>Mouse</td>
                                     <td>5</td>
                                     <td><span class="status low-stock">Low stock</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
+                                    <td><button class="restock-button">Restock</button></td>
 
                                 </tr>
                                 <tr>
                                     <td>Speaker</td>
                                     <td>100</td>
                                     <td><span class="status stable">Stable</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
+                                    <td><button class="restock-button">Restock</button></td>
 
                                 </tr>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
+                                    <td><button class="restock-button">Restock</button>
                                 </tr>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
+                                    <td><button class="restock-button">Restock</button>
                                 </tr>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
-                                </tr>
+                                    <td><button class="restock-button">Restock</button></td>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
-                                </tr>
+                                    <td><button class="restock-button">Restock</button></td>
                                 <tr>
                                     <td>Monitor</td>
                                     <td>0</td>
                                     <td><span class="status unavailable">Unavailable</span></td>
-                                    <td><a href="#restock-modal"><button class="restock-button">Restock</button></a></td>
+                                    <td><button class="restock-button">Restock</button></td>
                                 </tr>
                             </tbody>
                             <!-- <?php foreach ($products as $product) : ?>
@@ -147,21 +145,10 @@ require_once base_path('views/partials/nav.php');
                     <input type="text" id="sku" name="productsku" required>
                 </div>
             </div>
-            <input type="submit" id="restock-submit" value="Restock">
+            <input type="button" id="modal-submit" value="Restock">
         </form>
     </div>
 </div>
 
-<div id="confirmationModal" class="modal">
-    <div class="modal-content confirm">
-        <div class="confirm-question">
-            <h3>Are you Sure?</h3>
-            Once you click yes, this action cannot be undone.
-        </div>
-        <div class="yes-no-button">
-            <a href="#"><button>No</button></a>
-            <a href="#"><button class="yes">Yes</button></a>
-        </div>
-    </div>
-</div>
+<?php require base_path('views/partials/confirm-modal.php'); ?>
 <?php require_once base_path('views/partials/footer.php'); ?>

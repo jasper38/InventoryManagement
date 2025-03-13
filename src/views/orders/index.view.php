@@ -82,11 +82,56 @@ require_once base_path('views/partials/nav.php');
 
         <div class="tab-content" id="sales-order-content">
             <div class="sales-order-section">
-                
+
             </div>
         </div>
     </div>
 </main>
+<div id="order-modal" class="modal">
+    <div class="modal-content order">
+        <div class="close-button"><a href="#" class="close">&times;</a></div>
+        <form>
+            <div class="row">
+                <div class="column">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" name="productName" required>
+                </div>
+                <div class="column">
+                    <label for="sku">SKU:</label>
+                    <input type="text" id="sku" name="productsku" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="description">Description:</label>
+                    <input type="text" id="desc" name="description" required>
+                </div>
+                <div class="column">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="qty">Quantity:</label>
+                    <input type="text" id="qty" name="qty" required>
+                </div>
+                <div class="column">
+                    <label for="category">Type:</label>
+                    <input type="text" id="category" name="category" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="supplierid">Supplier Name:</label>
+                    <input type="text" id="supplierName" name="supplierName" required>
+                </div>
+            </div>
+            <input type="button" class="order" id="modal-submit" value="Order">
+        </form>
+    </div>
+</div>
+<?php require base_path('views/partials/confirm-modal.php'); ?>
 
 <?php require_once base_path('views/partials/section.close.php'); ?>
 <?php require_once base_path('views/partials/footer.php'); ?>
