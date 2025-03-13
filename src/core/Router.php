@@ -109,13 +109,15 @@ class Router
     {
         $userRole = Authenticator::userRole();
 
+        $originalUri = $registeredUri;
+
         $registeredUri = $this->replaceRolePlaceholder($registeredUri, $userRole);
 
-        if ($this->routeRequiresRole($registeredUri) && !$this->isAuthorizedRoleUri($uri, $userRole)) {
+        if ($this->routeRequiresRole($originalUri) && !$this->isAuthorizedRoleUri($uri, $userRole)) {
             $this->abort(Response::FORBIDDEN);
         }
 
-        $pattern = $this->buildRegexPattern($registeredUri, $userRole);
+        $pattern = $this->buildRegexPattern($registeredUri);
 
         return $this->matchAndExtractParams($uri, $pattern);
     }
@@ -125,20 +127,20 @@ class Router
         return str_contains($uri, '{role}') ? str_replace('{role}', $userRole, $uri) : $uri;
     }
 
-    private function routeRequiresRole($registeredUri)
+    private function routeRequiresRole($originalUri)
     {
-        return str_contains($registeredUri, '{role}');
+        return str_contains($originalUri, '{role}');
     }
 
     private function isAuthorizedRoleUri($uri, $userRole)
     {
-        return str_starts_with($uri, "/$userRole/");
+        $uriParts = explode('/', trim($uri, '/'));
+
+        return isset($uriParts[0]) && $uriParts[0] === $userRole;
     }
 
-    private function buildRegexPattern($registeredUri, $userRole)
+    private function buildRegexPattern($registeredUri)
     {
-        $registeredUri = str_replace('{role}', preg_quote($userRole, '#'), $registeredUri);
-
         $registeredUri = str_replace('{sku}', '([^/]+)', $registeredUri);
 
         return "#^" . $registeredUri . "$#";
@@ -147,7 +149,7 @@ class Router
     private function matchAndExtractParams($uri, $pattern)
     {
         if (preg_match($pattern, $uri, $matches)) {
-            if (isset($matches[1]) && strpos($pattern, '{sku}') !== false) {
+            if (isset($matches[1]) && str_contains($pattern, '([^/]+)')) {
                 $_GET['sku'] = $matches[1]; 
             }
             return true;
