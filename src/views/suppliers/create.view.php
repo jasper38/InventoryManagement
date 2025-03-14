@@ -29,7 +29,7 @@ require_once base_path('views/partials/nav.php');
     <div class="customer-container">
         <div class="customer-type">
             <label>Supplier Type:</label>
-            <label><input type="radio" class="customer-type" name="customerType" checked> Business</label>
+            <label><input type="radio" class="customer-type" name="customerType"> Business</label>
             <label><input type="radio" class="customer-type" name="customerType"> Individual</label>
         </div>
 
@@ -128,11 +128,11 @@ require_once base_path('views/partials/nav.php');
                 </div> -->
 
             <!-- File Upload -->
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Documents</label>
                 <input type="file">
                 <p>You can upload a maximum of 10 files, 10MB each</p>
-            </div>
+            </div> -->
             <!-- </div> -->
 
             <!-- Buttons -->

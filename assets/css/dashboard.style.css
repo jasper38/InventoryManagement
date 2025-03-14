@@ -236,7 +236,7 @@ body {
 }
 
 #sidebar.hide~.modal{
-    /* width: calc(100% - 60px); */
+    width: calc(100% - 60px);
     margin-left: 60px;
 }
 /* CONTENT-END */
@@ -393,7 +393,7 @@ body {
     width: 100%;
     padding: 36px 24px;
     font-family: var(--poppins);
-    max-height: calc(100vh - 56px);
+    height: 100%;
    /* overflow-y: auto;  */
 }
 
@@ -510,7 +510,7 @@ body {
 }
 
 #content main .table-data .tablebody-wrapper {
-    height: 250px;
+    height: 60vh;
     overflow-y: auto;
     display: block;
     /* border: 1px solid #ddd;
@@ -587,7 +587,9 @@ body {
 
 #content main .table-data .head .modal-button:active,
 #content main .table-data .head .modal-button:focus,
-#content main .table-data .head .modal-button:visited, h1 a {
+#content main .table-data .head .modal-button:visited, 
+h1 a, 
+#content main .table-data .order table td.action-icons i {
     color: var(--purple);
     text-decoration: none;
 }
@@ -773,8 +775,8 @@ table tr>th:nth-of-type(1) {
     width: 330px;
     padding: 20px 15px 0 20px;
     border-right: 1px solid #c3bfbf;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 .upload-portal h3,
@@ -787,8 +789,8 @@ table tr>th:nth-of-type(1) {
     padding: 20px 15px 0 20px;
     background: white;
     width: 400px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .product-enlist h3 {
@@ -810,6 +812,18 @@ table tr>th:nth-of-type(1) {
     border-style: dashed;
     border-radius: 15px;
     padding: 20px 0;
+    color: var(--dark-grey);
+    margin-bottom: 15px;
+}
+
+.dashed-box.product-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-style: dashed;
+    border-radius: 15px;
+    padding: 10px 0;
     color: var(--dark-grey);
     margin-bottom: 15px;
 }
@@ -933,7 +947,18 @@ table tr>th:nth-of-type(1) {
     border-radius: 10px;
 }
 
-.enlist-button {
+.change-photo-button {
+    font-family: var(--poppins);
+    font-size: 13px;
+    width: 130px;
+    padding: 8px 0;
+    background-color: white;
+    border: 1px solid #7d2ae8;
+    border-radius: 8px;
+}
+
+.enlist-button,
+.change-photo-button {
     background-color: #7d2ae8;
     color: white;
 }
@@ -961,6 +986,16 @@ table tr>th:nth-of-type(1) {
     align-items: center;
 }
 
+.progress-wrapper.product-edit {
+    width: 300px;
+    position: absolute;
+    top: 54px;
+    left: 18px;
+    display: flex;
+    grid-gap: 10px;
+    align-items: center;
+}
+
 .progress-bar {
     height: 10px;
     background-color: var(--purple);
@@ -979,7 +1014,7 @@ table tr>th:nth-of-type(1) {
     grid-gap: 0px;
     top: 50%;
     padding: 50px 0 20px 20px;
-    border-radius: 20px;
+    border-radius: 8px;
     max-width: 665px;
 }
 
@@ -1038,7 +1073,7 @@ table tr>th:nth-of-type(1) {
     position: fixed;
     font-family: var(--poppins);
     /* background-color: var(--dark-grey); */
-    border-radius: 20px;
+    border-radius: 8px;
     /* padding: 30px 20px 0 30px; */
     max-width: 732px;
     width: 100%;
@@ -1095,7 +1130,7 @@ table tr>th:nth-of-type(1) {
 }
 
 select, input[type="text"], input[type="email"], input[type="file"]
-input[type="number"] {
+input[type="number"], textarea {
 font-family: var(--poppins);
     font-size: 13px;
     width: 100%;
@@ -1103,6 +1138,11 @@ font-family: var(--poppins);
     margin: 3px 0;
     border: 1px solid black;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    height: 40px;
+    font-size: 14px;
 }
 
 .row {
@@ -1256,6 +1296,7 @@ table tr > th:nth-of-type(1){
 /* ORDER PAGE TAB */
 .tabs {
     margin-top: 20px;
+    height:70vh;
 }
 
 /* Style the tab labels */
@@ -1294,15 +1335,60 @@ input[type="radio"]:checked+.tab-label {
     display: block;
 }
 
-.customer-container {
+.customer-container{
+    font-size: 18px;
     background: white;
-    margin-top: 15px;
+    margin-top: 50px;
+    margin-left: 25%;
     padding: 20px;
-    width: 100%;
+    width: 50%;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    height: 420px;
+    height: 66vh;
     overflow-y: auto;
+}
+
+.container.product-edit {
+    display: flex;
+    gap: 14px;
+    font-size: 18px;
+    background: white;
+    margin-top: 50px;
+    margin-left: 20%;
+    padding: 10px;
+    width: 880px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.upload-portal.product-edit {
+    border-right: none;
+    background: white;
+    width: 370px;
+    padding: 20px 15px 0 20px;
+}
+
+
+.product-edit-image{
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-edit-image img{
+   width: 320px;
+   border-radius: 8px;
+}
+
+.product-edit-form {
+    margin-top: 53px;
+    width: 450px;
+}
+
+.product-detail-title{
+    display: block;
 }
 
 .customer-type {
@@ -1316,7 +1402,7 @@ input.customer-type, input.phone-num {
 select,
 input[type="text"],
 input[type="email"],
-input[type="file"] {
+input[type="file"], textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -1325,9 +1411,12 @@ input[type="file"] {
 
 .customer-type label {
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 18px;
 }
 
+.form-group {
+    margin-bottom: 15px;
+}
 .form-group {
     margin-bottom: 15px;
 }
@@ -1382,24 +1471,26 @@ input[type="file"] {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    margin-top: 10px;
+    margin: 25px 0 10px;
 }
 
 .save-btn {
     font-family: var(--poppins);
     background: var(--purple);
+    font-size: 16px;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 .cancel-btn {
+    font-size: 16px;
     font-family: var(--poppins);
     background: #ddd;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
 }
