@@ -34,8 +34,6 @@ require_once base_path('views/partials/nav.php');
                             <h5>Enlist a product</h5>
                         </div>
                     </a>
-                    <i class='bx bx-search'></i>
-                    <i class='bx bx-filter'></i>
                 </div>
 
                 <div class="table-wrapper">

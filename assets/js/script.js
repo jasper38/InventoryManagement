@@ -18,7 +18,7 @@ const sidebar = document.getElementById('sidebar');
 const links = sidebar.querySelectorAll("a, button");
 
 if (localStorage.getItem('sidebarState') === 'collapsed') {
-    sidebar.classList.add('hide', 'preload'); 
+    sidebar.classList.add('hide', 'preload');
 }
 
 menuBar.addEventListener('click', function () {
@@ -82,77 +82,94 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark');
-        switchMode.checked = true; 
+        switchMode.checked = true;
     }
 
     switchMode.addEventListener('change', function () {
         if (this.checked) {
             document.body.classList.add('dark');
-            localStorage.setItem('darkMode', 'true');  
+            localStorage.setItem('darkMode', 'true');
         } else {
             document.body.classList.remove('dark');
-            localStorage.setItem('darkMode', 'false'); 
+            localStorage.setItem('darkMode', 'false');
         }
     });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const restockSubmitBtn = document.getElementById("modal-submit");
-    const restockForm = document.getElementById("restock-form");
-    const restockModal = document.getElementById("restock-modal");
     const confirmationModal = document.getElementById("confirmationModal");
     const confirmYesBtn = document.getElementById("confirmAction");
     const confirmNoBtn = document.getElementById("closeModal");
-    const closeButton = document.querySelector(".close-button");
+    let activeForm = null; // Store the form being submitted
 
-    if (!restockSubmitBtn || !restockForm || !restockModal || !confirmationModal || !confirmYesBtn || !confirmNoBtn) {
-        console.error("One or more elements not found!");
+    // Find modals for Order and Restock
+    const orderModal = document.getElementById("order-modal");
+    const restockModal = document.getElementById("restock-modal");
+    const productModal = document.getElementById("enlistProductModal");
+
+    if (!confirmationModal || !confirmYesBtn || !confirmNoBtn) {
+        console.error("Confirmation modal elements not found!");
         return;
     }
 
-    // Show confirmation modal only if form is valid
-    restockSubmitBtn.addEventListener("click", function (event) {
-        if (restockForm.checkValidity()) {
-            event.preventDefault(); // Stop form from submitting immediately
-            confirmationModal.style.display = "block"; // Show confirmation modal
-        } else {
-            restockForm.reportValidity(); // Show built-in validation messages
+    // Function to handle modal + confirmation
+    function handleConfirmation(buttonId, formSelector, modal) {
+        const button = document.getElementById(buttonId);
+        const form = document.querySelector(formSelector);
+
+        if (!button || !form) {
+            console.error(`Button or form not found: ${buttonId}, ${formSelector}`);
+            return;
         }
-    });
 
-    // If "Yes" is clicked, submit form and close both modals
-    confirmYesBtn.addEventListener("click", function () {
-        restockForm.submit(); // Submit the form
-        closeModals(); // Ensure both modals are closed
-    });
-
-    // If "No" is clicked, close only the confirmation modal
-    confirmNoBtn.addEventListener("click", function () {
-        confirmationModal.style.display = "none";
-    });
-
-    closeButton.addEventListener("click", function () {
-        restockModal.style.display = "none"; // Hide modal
-    });
-    // Close modals when clicking outside them
-    window.addEventListener("click", function (event) {
-        if (event.target === restockModal || event.target === confirmationModal) {
-            closeModals();
-        }
-    });
-
-    // Handle opening restock modal
-    document.querySelectorAll(".restock-button").forEach(button => {
-        button.addEventListener("click", function () {
-            closeModals(); // Close any open modals before opening a new one
-            restockForm.reset(); // Clear form inputs for fresh entry
-            restockModal.style.display = "block"; // Open the restock modal
+        button.addEventListener("click", function (event) {
+            if (form.checkValidity()) {
+                event.preventDefault(); // Stop form from submitting immediately
+                activeForm = form; // Set active form
+                confirmationModal.style.display = "block"; // Show confirmation modal
+                // if (modal) modal.style.display = "none"; // Hide only the relevant modal
+            } else {
+                form.reportValidity(); // Show built-in validation messages
+            }
         });
+    }
+
+    // Attach event listeners to the correct buttons
+    handleConfirmation("restock-modal-submit", "#restock-form", restockModal); // Restock modal button
+    handleConfirmation("order-modal-submit", "#order-modal-form", orderModal); // Order modal button
+    handleConfirmation("product-modal-submit", productModal); // Order modal button
+
+    // If "Yes" is clicked, submit the active form & close all modals
+    confirmYesBtn.addEventListener("click", function () {
+        if (activeForm) {
+            activeForm.submit();
+        }
+
+        confirmationModal.style.display = "none"; // Close confirmation modal
     });
 
-    function closeModals() {
-        restockModal.style.display = "none";
-        confirmationModal.style.display = "none";
-        restockForm.reset(); // Clear input fields for the next submission
-    }
+    // If "No" is clicked, only close the confirmation modal
+    confirmNoBtn.addEventListener("click", function () {
+        confirmationModal.style.display = "none"; // Only hide confirmation modal
+        // If the restock modal was opened before, reopen it
+        if (activeForm && activeForm.id === "restock-form") {
+            restockModal.style.display = "block";
+        }
+        if (activeForm && activeForm.id === "order-modal-form") {
+            orderModal.style.display = "block";
+        }
+    });
+
+    // Close confirmation modal when clicking outside
+    window.addEventListener("click", function (event) {
+        if (event.target === confirmationModal) {
+            confirmationModal.style.display = "none";
+            if (activeForm && activeForm.id === "restock-form") {
+                restockModal.style.display = "block";
+            }
+            if (activeForm && activeForm.id === "order-modal-form") {
+                orderModal.style.display = "block";
+            }
+        }
+    });
 });

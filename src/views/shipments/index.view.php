@@ -69,8 +69,6 @@ require_once base_path('views/partials/nav.php');
                             <i class='bx bxs-plus-circle'></i>
                         </div>
                     </a>
-                    <i class='bx bx-search'></i>
-                    <i class='bx bx-filter'></i>
                 </div>
                 <table>
                     <thead>

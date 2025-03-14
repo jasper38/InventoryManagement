@@ -34,8 +34,6 @@ require_once base_path('views/partials/nav.php');
                             <h5>Enlist a product</h5>
                         </div>
                     </a>
-                    <i class='bx bx-search'></i>
-                    <i class='bx bx-filter'></i>
                 </div>
 
                 <div class="table-wrapper">
@@ -158,7 +156,7 @@ require_once base_path('views/partials/nav.php');
                                     <td class="action-icons">
                                         <a href="/<?= $role ?>/products/edit/0111117">
                                             <i class="bx bx-edit"></i>
-                                        </a> 
+                                        </a>
                                         <i class="bx bx-trash"></i>
                                     </td>
                                 </tr>
@@ -223,7 +221,7 @@ require_once base_path('views/partials/nav.php');
             </div>
             <div class="footer">
                 <button class="cancel-button">Cancel</button>
-                <button class="enlist-button" id="openConfirmationModal">Enlist Product</button>
+                <button class="enlist-button" id="product-modal-submit">Enlist Product</button>
             </div>
         </div>
         <div class="product-enlist">

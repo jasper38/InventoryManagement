@@ -43,8 +43,6 @@ require_once base_path('views/partials/nav.php');
                 <div class="head">
                     <h3>Product Restock</h3>
 
-                    <i class='bx bx-search'></i>
-                    <i class='bx bx-filter'></i>
                 </div>
                 <div class="table-wrapper">
                     <table>
@@ -137,8 +135,14 @@ require_once base_path('views/partials/nav.php');
         <form id="restock-form">
             <div class="row">
                 <div class="column">
-                    <label for="productName">Quantity:</label>
-                    <input type="text" id="productName" name="productName" required>
+                    <label for="productName">Product Name:</label>
+                    <h4 class="product-name">Mouse</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="qty">Quantity:</label>
+                    <input type="text" id="qty" name="qty" required>
                 </div>
                 <div class="column">
                     <label for="sku">Supplier Name:</label>

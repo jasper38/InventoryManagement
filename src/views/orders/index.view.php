@@ -37,8 +37,7 @@ require_once base_path('views/partials/nav.php');
                                 <h5>Create an Order</h5>
                             </div>
                         </a>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
+
                     </div>
                     <div class="table-wrapper">
                         <table>
@@ -52,12 +51,13 @@ require_once base_path('views/partials/nav.php');
                                     <th>Qty.</th>
                                     <th>Total cost</th>
                                     <th>Type</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                         </table>
                         <div class="tablebody-wrapper">
                             <table>
-                                <?php foreach ($orders as $order) : ?>
+                                <!-- <?php foreach ($orders as $order) : ?>
                                     <tbody>
                                         <tr>
                                             <td style="width:150px;"><?= htmlspecialchars($order['tracking_id']) ?></td>
@@ -72,7 +72,26 @@ require_once base_path('views/partials/nav.php');
                                             <td><?= htmlspecialchars($order['type']) ?></td>
                                         </tr>
                                     </tbody>
-                                <?php endforeach; ?>
+                                <?php endforeach; ?> -->
+                                <tbody>
+                                    <tr>
+                                        <td style="width:150px;">100000000</td>
+                                        <td>0000001</td>
+                                        <td>
+                                            <p>Pending</p>
+                                        </td>
+                                        <td>Your Mom</td>
+                                        <td>Mouse</td>
+                                        <td>1000</td>
+                                        <td>10000</td>
+                                        <td>Mouse</td>
+                                        <td>
+                                            <form>
+                                                <input type="button" class="mark-as-done" value="Mark as Done">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -90,8 +109,6 @@ require_once base_path('views/partials/nav.php');
                                 <h5>Create an Order</h5>
                             </div>
                         </a>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
                     </div>
                     <div class="table-wrapper">
                         <table>
@@ -105,12 +122,13 @@ require_once base_path('views/partials/nav.php');
                                     <th>Qty.</th>
                                     <th>Total cost</th>
                                     <th>Type</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                         </table>
                         <div class="tablebody-wrapper">
                             <table>
-                                <?php foreach ($orders as $order) : ?>
+                                <!-- <?php foreach ($orders as $order) : ?>
                                     <tbody>
                                         <tr>
                                             <td style="width:150px;"><?= htmlspecialchars($order['tracking_id']) ?></td>
@@ -125,7 +143,26 @@ require_once base_path('views/partials/nav.php');
                                             <td><?= htmlspecialchars($order['type']) ?></td>
                                         </tr>
                                     </tbody>
-                                <?php endforeach; ?>
+                                <?php endforeach; ?> -->
+                                <tbody>
+                                    <tr>
+                                        <td style="width:150px;">100000000</td>
+                                        <td>0000001</td>
+                                        <td>
+                                            <p>Pending</p>
+                                        </td>
+                                        <td>Your Mom</td>
+                                        <td>Mouse</td>
+                                        <td>1000</td>
+                                        <td>10000</td>
+                                        <td>Mouse</td>
+                                        <td>
+                                            <form>
+                                                <input type="button" class="mark-as-done" value="Mark as Done">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

@@ -598,6 +598,7 @@ h1 a,
     grid-gap: 5px;
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 /* #content main .table-data .order {
     flex-grow: 1;
@@ -648,6 +649,10 @@ h1 a,
     padding-bottom: 12px;
     font-size: 13px;
     text-align: left;
+}
+
+#content main .table-data .order table tbody form {
+  margin-left: -200px;
 }
 
 #content main .table-data .order table tbody tr:nth-child(odd) {
@@ -955,6 +960,11 @@ table tr>th:nth-of-type(1) {
     background-color: white;
     border: 1px solid #7d2ae8;
     border-radius: 8px;
+}
+
+.change-photo-button h4{
+    text-align: center;
+    font-weight: 200;
 }
 
 .enlist-button,
@@ -1372,6 +1382,7 @@ input[type="radio"]:checked+.tab-label {
 
 .product-edit-image{
     display: flex;
+    max-height: 300px;
     margin: 10px 0;
     justify-content: center;
     align-items: center;
@@ -1447,6 +1458,9 @@ input[type="file"], textarea {
    font-size: 13px;
 }
 
+.product-name{
+    display: inline-block;
+}
 /* .tabs button {
     border: none;
     background: #ddd;
